@@ -100,7 +100,9 @@ export const Login = () => {
           <TouchableWithoutFeedback
             onPress={() => console.log("Recordar password")}
           >
-            <Subheading style={{ color: "#3ba7e4" }}>
+            <Subheading
+              style={{ color: "#3ba7e4", textDecorationLine: "underline" }}
+            >
               ¿Olvidaste tu contraseña?
             </Subheading>
           </TouchableWithoutFeedback>
