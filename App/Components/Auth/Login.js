@@ -13,8 +13,8 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
 import { Caption, Divider, Subheading } from "react-native-paper";
 
-export const Login = () => {
-  const [passwordVisible, setPasswordVisible] = useState(false);
+export const Login = ({ navigation }) => {
+  const [passwordVisible, setPasswordVisible] = useState(true);
 
   const { height, width } = Dimensions.get("window");
   const [animateBtn] = useState(new Animated.Value(1));
@@ -42,9 +42,13 @@ export const Login = () => {
     setPasswordVisible(!passwordVisible);
   };
 
+  const goToForgotPassword = () => {
+    navigation.navigate("ForgotPassword");
+  };
+
   return (
     <View style={{ flex: 1 }}>
-      <View>
+      <View style={{ flex: 1 }}>
         <Image
           source={require("./../../../assets/svg.png")}
           //   https://svgwave.in/
@@ -123,9 +127,7 @@ export const Login = () => {
         </Animated.View>
 
         <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <TouchableWithoutFeedback
-            onPress={() => console.log("Recordar password")}
-          >
+          <TouchableWithoutFeedback onPress={() => goToForgotPassword()}>
             <Subheading
               style={{ color: "#3ba7e4", textDecorationLine: "underline" }}
             >
@@ -151,7 +153,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderColor: "#3ba7e4",
     borderWidth: 4,
-    borderRadius: 50,
+    borderRadius: 40,
     elevation: 2,
     alignItems: "center",
     justifyContent: "center",

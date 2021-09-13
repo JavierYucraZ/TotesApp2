@@ -1,22 +1,19 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { Login } from "./App/Components/Auth/Login";
+import { LogBox } from "react-native";
+
+LogBox.ignoreLogs(["Remote debugger"]);
+
+import { NavigationContainer } from "@react-navigation/native";
+import { InitApp } from "./App/Components/Auth";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Login></Login>
+    <NavigationContainer>
       <StatusBar style="auto" />
-    </View>
+      {/* Encapsular para validacion de login */}
+      <InitApp />
+      {/* Encapsular para validacion de login */}
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
