@@ -14,6 +14,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Caption, Divider, Subheading } from "react-native-paper";
 
 export const Login = () => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
   const { height, width } = Dimensions.get("window");
   const [animateBtn] = useState(new Animated.Value(1));
 
@@ -36,6 +38,10 @@ export const Login = () => {
     transform: [{ scale: animateBtn }],
   };
 
+  const togglePassword = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
   return (
     <View style={{ flex: 1 }}>
       <View>
@@ -45,6 +51,7 @@ export const Login = () => {
           style={{ flex: 1 }}
           height={height}
           width={width}
+          resizeMode="stretch"
         />
       </View>
 
@@ -61,7 +68,9 @@ export const Login = () => {
 
         <View style={styles.inputContainer}>
           <View>
-            <Caption style={{ textAlign: "center" }}>Nombre de usuario</Caption>
+            <Caption style={{ marginHorizontal: 50 }}>
+              Nombre de usuario
+            </Caption>
             <TextInput
               placeholder="Usuario"
               style={styles.textInput}
@@ -70,10 +79,27 @@ export const Login = () => {
           </View>
 
           <View>
-            <Caption style={{ textAlign: "center" }}>Contraseña</Caption>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginHorizontal: 50,
+              }}
+            >
+              <Caption>Contraseña</Caption>
+              <TouchableWithoutFeedback onPress={() => togglePassword()}>
+                {passwordVisible ? (
+                  <FontAwesome name="lock" size={20} color="black" />
+                ) : (
+                  <FontAwesome name="unlock" size={20} color="black" />
+                )}
+              </TouchableWithoutFeedback>
+            </View>
+
             <TextInput
               placeholder="Contraseña"
-              secureTextEntry
+              secureTextEntry={passwordVisible}
               style={styles.textInput}
               placeholderTextColor="white"
             />
