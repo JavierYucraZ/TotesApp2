@@ -10,7 +10,7 @@ import {
 import { Title } from "react-native-paper";
 import { LinearGradient } from "expo-linear-gradient";
 
-export const recoverPassword = ({ navigation }) => {
+export const sendVerificationCode = ({ navigation }) => {
   const [animateBtn] = useState(new Animated.Value(1));
   const pressBtnRecoverPassword = () => {
     console.log("Recuperar password");

@@ -6,7 +6,7 @@ import { Login } from "./Login";
 import { forgotPassword } from "./forgotPassword";
 
 import { createStackNavigator } from "@react-navigation/stack";
-import { recoverPassword } from "./recoverPassword";
+import { sendVerificationCode } from "./sendVerificationCode";
 import { resetPassword } from "./resetPassword";
 
 const Stack = createStackNavigator();
@@ -29,7 +29,7 @@ export const InitApp = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen name="ForgotPassword" component={forgotPassword} />
-      <Stack.Screen name="RecoverPassword" component={recoverPassword} />
+      <Stack.Screen name="RecoverPassword" component={sendVerificationCode} />
       <Stack.Screen name="ResetPassword" component={resetPassword} />
     </Stack.Navigator>
   );
