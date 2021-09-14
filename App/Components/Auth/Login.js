@@ -12,19 +12,23 @@ import {
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
 import { Caption, Divider, Subheading } from "react-native-paper";
+import { LoginService } from "../../../Services/Auth/login";
 
-export const Login = ({ navigation }) => {
+export const login = ({ navigation }) => {
+  const [userName, setUserName] = useState();
+  const [password, setPassword] = useState();
+
   const [passwordVisible, setPasswordVisible] = useState(true);
 
   const { height, width } = Dimensions.get("window");
   const [animateBtn] = useState(new Animated.Value(1));
 
   const pressBtnLogin = () => {
-    console.log("Inicio de sesion");
     Animated.spring(animateBtn, {
       toValue: 0.9,
       useNativeDriver: false,
     }).start();
+    LoginService({ userName: userName, password: password });
   };
 
   const leaveBtnLogin = () => {
@@ -79,6 +83,8 @@ export const Login = ({ navigation }) => {
               placeholder="Usuario"
               style={styles.textInput}
               placeholderTextColor="white"
+              onChangeText={(userName) => setUserName(userName)}
+              value={userName}
             />
           </View>
 
@@ -106,6 +112,8 @@ export const Login = ({ navigation }) => {
               secureTextEntry={passwordVisible}
               style={styles.textInput}
               placeholderTextColor="white"
+              value={password}
+              onChangeText={(password) => setPassword(password)}
             />
           </View>
           <Divider style={{ margin: 10 }} />

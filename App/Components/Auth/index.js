@@ -2,7 +2,7 @@ import "react-native-gesture-handler";
 import React from "react";
 import { StyleSheet } from "react-native";
 
-import { Login } from "./Login";
+import { login } from "./login";
 import { forgotPassword } from "./forgotPassword";
 
 import { createStackNavigator } from "@react-navigation/stack";
@@ -11,7 +11,7 @@ import { resetPassword } from "./resetPassword";
 
 const Stack = createStackNavigator();
 
-export const InitApp = () => {
+export const AuthActions = () => {
   return (
     <Stack.Navigator
       initialRouteName="Login"
@@ -25,7 +25,7 @@ export const InitApp = () => {
     >
       <Stack.Screen
         name="Login"
-        component={Login}
+        component={login}
         options={{ headerShown: false }}
       />
       <Stack.Screen name="ForgotPassword" component={forgotPassword} />
