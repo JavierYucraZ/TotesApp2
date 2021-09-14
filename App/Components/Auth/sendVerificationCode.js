@@ -12,7 +12,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 export const sendVerificationCode = ({ navigation }) => {
   const [animateBtn] = useState(new Animated.Value(1));
-  const pressBtnRecoverPassword = () => {
+  const pressBtnSendCode = () => {
     console.log("Recuperar password");
     Animated.spring(animateBtn, {
       toValue: 0.9,
@@ -21,7 +21,7 @@ export const sendVerificationCode = ({ navigation }) => {
     navigation.navigate("ResetPassword");
   };
 
-  const leaveBtnRecoverPassword = () => {
+  const leaveBtnSendCode = () => {
     Animated.spring(animateBtn, {
       toValue: 1,
       useNativeDriver: false,
@@ -47,8 +47,8 @@ export const sendVerificationCode = ({ navigation }) => {
       </View>
       <Animated.View style={styleBtn}>
         <TouchableWithoutFeedback
-          onPressIn={() => pressBtnRecoverPassword()}
-          onPressOut={() => leaveBtnRecoverPassword()}
+          onPressIn={() => pressBtnSendCode()}
+          onPressOut={() => leaveBtnSendCode()}
         >
           <LinearGradient
             colors={["#0073ac", "#5793de"]}

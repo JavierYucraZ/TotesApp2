@@ -18,8 +18,12 @@ export const resetPassword = ({ navigation }) => {
       toValue: 0.9,
       useNativeDriver: false,
     }).start();
-    // navigation.navigate("ResetPassword");
-    Alert.alert("", "Recuperaste tu password");
+    Alert.alert("Contraseña restaurada", "Inicie sesión por favor", [
+      {
+        text: "Aceptar",
+        onPress: () => navigation.navigate("Login"),
+      },
+    ]);
   };
 
   const leaveBtnResetPassword = () => {
