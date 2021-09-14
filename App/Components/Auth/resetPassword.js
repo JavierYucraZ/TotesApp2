@@ -6,23 +6,23 @@ import {
   TextInput,
   Animated,
   TouchableWithoutFeedback,
+  Alert,
 } from "react-native";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { Caption } from "react-native-paper";
 import { LinearGradient } from "expo-linear-gradient";
 
-export const forgotPassword = ({ navigation }) => {
+export const resetPassword = ({ navigation }) => {
   const [animateBtn] = useState(new Animated.Value(1));
-  const pressBtnSendEmail = () => {
+  const pressBtnResetPassword = () => {
     console.log("Recuperar password");
     Animated.spring(animateBtn, {
       toValue: 0.9,
       useNativeDriver: false,
     }).start();
-    navigation.navigate("RecoverPassword");
+    // navigation.navigate("ResetPassword");
+    Alert.alert("", "Recuperaste tu password");
   };
 
-  const leaveBtnSendEmail = () => {
+  const leaveBtnResetPassword = () => {
     Animated.spring(animateBtn, {
       toValue: 1,
       useNativeDriver: false,
@@ -32,34 +32,34 @@ export const forgotPassword = ({ navigation }) => {
   const styleBtn = {
     transform: [{ scale: animateBtn }],
   };
+
   return (
     <View style={styles.container}>
-      <View style={styles.containerImage}>
-        <FontAwesome name="envelope" size={50} color="#00c1e8" />
+      <View>
+        <TextInput
+          placeholder="Nueva contraseña"
+          style={styles.textInput}
+          placeholderTextColor="white"
+        />
       </View>
       <View>
-        <View>
-          <Caption style={{ marginHorizontal: 50, textAlign: "center" }}>
-            Correo Electronico
-          </Caption>
-          <TextInput
-            placeholder="Correo Electronico"
-            style={styles.textInput}
-            placeholderTextColor="white"
-          />
-        </View>
+        <TextInput
+          placeholder="Repetir la contraseña"
+          style={styles.textInput}
+          placeholderTextColor="white"
+        />
       </View>
       <Animated.View style={styleBtn}>
         <TouchableWithoutFeedback
-          onPressIn={() => pressBtnSendEmail()}
-          onPressOut={() => leaveBtnSendEmail()}
+          onPressIn={() => pressBtnResetPassword()}
+          onPressOut={() => leaveBtnResetPassword()}
         >
           <LinearGradient
             colors={["#0073ac", "#5793de"]}
             end={{ x: 0.8, y: 0.2 }}
             style={styles.button}
           >
-            <Text style={styles.textButton}>Enviar</Text>
+            <Text style={styles.textButton}>Aceptar</Text>
           </LinearGradient>
         </TouchableWithoutFeedback>
       </Animated.View>
@@ -73,18 +73,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-  },
-  containerImage: {
-    height: 150,
-    width: 150,
-    backgroundColor: "white",
-    borderColor: "#3ba7e4",
-    borderWidth: 4,
-    borderRadius: 75,
-    elevation: 2,
-    alignItems: "center",
-    justifyContent: "center",
-    top: -50,
+    paddingVertical: 30,
   },
   textInput: {
     textAlign: "center",
@@ -96,7 +85,7 @@ const styles = StyleSheet.create({
     color: "white",
     backgroundColor: "#9dadbc",
     paddingLeft: 10,
-    marginVertical: 5,
+    marginVertical: 15,
     borderColor: "transparent",
     fontSize: 20,
   },
