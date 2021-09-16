@@ -39,10 +39,10 @@ export const sendVerificationCode = ({ navigation }) => {
       </Title>
       <View>
         <TextInput
-          placeholder="Codigo de verificacion"
+          placeholder="Código de verificación"
           style={styles.textInput}
           keyboardType="phone-pad"
-          placeholderTextColor="white"
+          placeholderTextColor="rgba(0, 0, 0, 0.4)"
         />
       </View>
       <Animated.View style={styleBtn}>
@@ -51,8 +51,8 @@ export const sendVerificationCode = ({ navigation }) => {
           onPressOut={() => leaveBtnSendCode()}
         >
           <LinearGradient
-            colors={["#0073ac", "#5793de"]}
-            end={{ x: 0.8, y: 0.2 }}
+            colors={["#5d8096", "#c5d9f1"]}
+            end={{ x: 2.5, y: 0.5 }}
             style={styles.button}
           >
             <Text style={styles.textButton}>Aceptar</Text>
@@ -72,10 +72,12 @@ const styles = StyleSheet.create({
     paddingVertical: 30,
   },
   title: {
+    top: 30,
     marginHorizontal: 20,
     textAlign: "center",
     fontSize: 22,
     marginBottom: 60,
+    paddingBottom: 20,
   },
   textInput: {
     textAlign: "center",
@@ -84,8 +86,8 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderRadius: 50,
     marginHorizontal: 20,
-    color: "white",
-    backgroundColor: "#9dadbc",
+    color: "black",
+    backgroundColor: "#c5d9f1",
     paddingLeft: 10,
     marginVertical: 5,
     borderColor: "transparent",
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginVertical: 55,
-    borderColor: "#2e71dc",
+    borderColor: "#5d8096",
     elevation: 5,
   },
   textButton: {

@@ -21,6 +21,9 @@ export const login = ({ navigation }) => {
   const [passwordVisible, setPasswordVisible] = useState(true);
 
   const { height, width } = Dimensions.get("window");
+  const alto = Dimensions.get("screen").height;
+  const ancho = Dimensions.get("screen").width;
+
   const [animateBtn] = useState(new Animated.Value(1));
 
   const pressBtnLogin = () => {
@@ -54,12 +57,12 @@ export const login = ({ navigation }) => {
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
         <Image
-          source={require("./../../../assets/svg.png")}
+          source={require("./../../../assets/f.png")}
           //   https://svgwave.in/
-          style={{ flex: 1 }}
-          height={height}
-          width={width}
-          resizeMode="stretch"
+          style={{ flex: 1, width: 392, height:825, resizeMode: 'cover'}}
+          //height={alto}
+          //width={ancho}
+          //resizeMode="stretch"
         />
       </View>
 
@@ -71,7 +74,7 @@ export const login = ({ navigation }) => {
         }}
       >
         <View style={styles.containerImage}>
-          <FontAwesome name="user" size={50} color="#00c1e8" />
+          <FontAwesome name="map-marker" size={100} color="#5d8096" />
         </View>
 
         <View style={styles.inputContainer}>
@@ -82,7 +85,7 @@ export const login = ({ navigation }) => {
             <TextInput
               placeholder="Usuario"
               style={styles.textInput}
-              placeholderTextColor="white"
+              placeholderTextColor="rgba(0, 0, 0, 0.4)"
               onChangeText={(userName) => setUserName(userName)}
               value={userName}
             />
@@ -111,7 +114,7 @@ export const login = ({ navigation }) => {
               placeholder="Contraseña"
               secureTextEntry={passwordVisible}
               style={styles.textInput}
-              placeholderTextColor="white"
+              placeholderTextColor="rgba(0, 0, 0, 0.4)"
               value={password}
               onChangeText={(password) => setPassword(password)}
             />
@@ -125,8 +128,8 @@ export const login = ({ navigation }) => {
             onPressOut={() => leaveBtnLogin()}
           >
             <LinearGradient
-              colors={["#0073ac", "#5793de"]}
-              end={{ x: 0.8, y: 0.2 }}
+              colors={["#5d8096", "#c5d9f1"]}
+              end={{ x: 2.5, y: 0.5 }}
               style={styles.button}
             >
               <Text style={styles.textButton}>Ingresar</Text>
@@ -137,7 +140,7 @@ export const login = ({ navigation }) => {
         <View style={{ justifyContent: "center", alignItems: "center" }}>
           <TouchableWithoutFeedback onPress={() => goToForgotPassword()}>
             <Subheading
-              style={{ color: "#3ba7e4", textDecorationLine: "underline" }}
+              style={{ color: "#5d8096", textDecorationStyle: "solid" , textDecorationLine: "underline" }}
             >
               ¿Olvidaste tu contraseña?
             </Subheading>
@@ -156,18 +159,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   containerImage: {
-    height: 80,
-    width: 80,
+    height: 150,
+    width: 150,
     backgroundColor: "white",
-    borderColor: "#3ba7e4",
+    borderColor: "#5d8096",
     borderWidth: 4,
-    borderRadius: 40,
+    borderRadius: 80,
     elevation: 2,
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
-    top: -70,
-    left: Dimensions.get("window").width / 2 - 40,
+    top: -110,
+    left: Dimensions.get("window").width / 2 - 70,
   },
   inputContainer: {
     top: 40,
@@ -178,23 +181,25 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderRadius: 50,
     marginHorizontal: 20,
-    color: "white",
-    backgroundColor: "#9dadbc",
+    color: "#rgba(0, 0, 0, 0.8)",
+    backgroundColor: "#c5d9f1",
     paddingLeft: 10,
     marginVertical: 5,
     borderColor: "transparent",
     fontSize: 20,
   },
   button: {
-    backgroundColor: "white",
+    //backgroundColor: "white",
+    backgroundColor: "#5d8096",
     height: 50,
-    width: 250,
+    width: 280,
     marginHorizontal: 55,
     borderRadius: 50,
     alignItems: "center",
     justifyContent: "center",
     marginVertical: 55,
-    borderColor: "#2e71dc",
+    //borderColor: "#2e71dc",
+    borderColor: "#5d8096",
     elevation: 5,
   },
   textButton: {

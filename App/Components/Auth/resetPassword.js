@@ -43,14 +43,14 @@ export const resetPassword = ({ navigation }) => {
         <TextInput
           placeholder="Nueva contraseña"
           style={styles.textInput}
-          placeholderTextColor="white"
+          placeholderTextColor="rgba(0, 0, 0, 0.4)"
         />
       </View>
       <View>
         <TextInput
           placeholder="Repetir la contraseña"
           style={styles.textInput}
-          placeholderTextColor="white"
+          placeholderTextColor="rgba(0, 0, 0, 0.4)"
         />
       </View>
       <Animated.View style={styleBtn}>
@@ -59,8 +59,8 @@ export const resetPassword = ({ navigation }) => {
           onPressOut={() => leaveBtnResetPassword()}
         >
           <LinearGradient
-            colors={["#0073ac", "#5793de"]}
-            end={{ x: 0.8, y: 0.2 }}
+            colors={["#5d8096", "#c5d9f1"]}
+            end={{ x: 2.5, y: 0.5 }}
             style={styles.button}
           >
             <Text style={styles.textButton}>Aceptar</Text>
@@ -86,15 +86,15 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderRadius: 50,
     marginHorizontal: 20,
-    color: "white",
-    backgroundColor: "#9dadbc",
+    color: "black",
+    backgroundColor: "#c5d9f1",
     paddingLeft: 10,
     marginVertical: 15,
     borderColor: "transparent",
     fontSize: 20,
   },
   button: {
-    backgroundColor: "white",
+    backgroundColor: "#5d8096",
     height: 50,
     width: 150,
     marginHorizontal: 55,
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginVertical: 55,
-    borderColor: "#2e71dc",
+    borderColor: "#5d8096",
     elevation: 5,
   },
   textButton: {

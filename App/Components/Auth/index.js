@@ -18,7 +18,7 @@ export const AuthActions = () => {
       screenOptions={{
         title: "",
         headerStyle: {
-          backgroundColor: "#0073ac",
+          backgroundColor: "#5d8096",
         },
         headerTintColor: "white",
       }}

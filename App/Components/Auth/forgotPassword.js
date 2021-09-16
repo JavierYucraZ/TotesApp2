@@ -35,17 +35,17 @@ export const forgotPassword = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.containerImage}>
-        <FontAwesome name="envelope" size={50} color="#00c1e8" />
+        <FontAwesome name="envelope" size={120} color="#5d8096" />
       </View>
       <View>
         <View>
           <Caption style={{ marginHorizontal: 50, textAlign: "center" }}>
-            Correo Electronico
+            Correo Electrónico
           </Caption>
           <TextInput
-            placeholder="Correo Electronico"
+            placeholder="Correo Electrónico"
             style={styles.textInput}
-            placeholderTextColor="white"
+            placeholderTextColor="rgba(0, 0, 0, 0.4)"
           />
         </View>
       </View>
@@ -55,8 +55,8 @@ export const forgotPassword = ({ navigation }) => {
           onPressOut={() => leaveBtnSendEmail()}
         >
           <LinearGradient
-            colors={["#0073ac", "#5793de"]}
-            end={{ x: 0.8, y: 0.2 }}
+            colors={["#5d8096", "#c5d9f1"]}
+            end={{ x: 2.5, y: 0.5 }}
             style={styles.button}
           >
             <Text style={styles.textButton}>Enviar</Text>
@@ -75,12 +75,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   containerImage: {
-    height: 150,
-    width: 150,
+    height: 180,
+    width: 180,
     backgroundColor: "white",
-    borderColor: "#3ba7e4",
+    borderColor: "#5d8096",
     borderWidth: 4,
-    borderRadius: 75,
+    borderRadius: 90,
     elevation: 2,
     alignItems: "center",
     justifyContent: "center",
@@ -93,8 +93,8 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderRadius: 50,
     marginHorizontal: 20,
-    color: "white",
-    backgroundColor: "#9dadbc",
+    color: "black",
+    backgroundColor: "#c5d9f1",
     paddingLeft: 10,
     marginVertical: 5,
     borderColor: "transparent",
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginVertical: 55,
-    borderColor: "#2e71dc",
+    borderColor: "#5d8096",
     elevation: 5,
   },
   textButton: {
