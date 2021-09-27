@@ -2,7 +2,7 @@ import "react-native-gesture-handler";
 import React from "react";
 import { StyleSheet } from "react-native";
 
-import { login } from "./login";
+import { login } from "./Login";
 import { forgotPassword } from "./forgotPassword";
 
 import { createStackNavigator } from "@react-navigation/stack";
