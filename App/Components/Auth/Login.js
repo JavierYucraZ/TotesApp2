@@ -21,8 +21,6 @@ export const login = ({ navigation }) => {
   const [passwordVisible, setPasswordVisible] = useState(true);
 
   const { height, width } = Dimensions.get("window");
-  const alto = Dimensions.get("screen").height;
-  const ancho = Dimensions.get("screen").width;
 
   const [animateBtn] = useState(new Animated.Value(1));
 
@@ -59,7 +57,7 @@ export const login = ({ navigation }) => {
         <Image
           source={require("./../../../assets/f.png")}
           //   https://svgwave.in/
-          style={{ flex: 1, width: 392, height:825, resizeMode: 'cover'}}
+          style={{ flex: 1, width: 392, height: 825, resizeMode: "cover" }}
           //height={alto}
           //width={ancho}
           //resizeMode="stretch"
@@ -140,7 +138,11 @@ export const login = ({ navigation }) => {
         <View style={{ justifyContent: "center", alignItems: "center" }}>
           <TouchableWithoutFeedback onPress={() => goToForgotPassword()}>
             <Subheading
-              style={{ color: "#5d8096", textDecorationStyle: "solid" , textDecorationLine: "underline" }}
+              style={{
+                color: "#5d8096",
+                textDecorationStyle: "solid",
+                textDecorationLine: "underline",
+              }}
             >
               ¿Olvidaste tu contraseña?
             </Subheading>
@@ -189,16 +191,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   button: {
-    //backgroundColor: "white",
     backgroundColor: "#5d8096",
     height: 50,
     width: 280,
-    marginHorizontal: 55,
+    margin: 45,
     borderRadius: 50,
     alignItems: "center",
     justifyContent: "center",
-    marginVertical: 55,
-    //borderColor: "#2e71dc",
     borderColor: "#5d8096",
     elevation: 5,
   },
