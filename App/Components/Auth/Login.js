@@ -11,11 +11,11 @@ import {
 } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { LinearGradient } from "expo-linear-gradient";
-import { Caption, Divider, Subheading } from "react-native-paper";
+import { Button, Caption, Divider, Subheading } from "react-native-paper";
 import { LoginService } from "../../../Services/Auth/login";
 
 export const login = ({ navigation }) => {
-  const [userName, setUserName] = useState();
+  const [ci, setCi] = useState();
   const [password, setPassword] = useState();
 
   const [passwordVisible, setPasswordVisible] = useState(true);
@@ -29,7 +29,6 @@ export const login = ({ navigation }) => {
       toValue: 0.9,
       useNativeDriver: false,
     }).start();
-    LoginService({ userName: userName, password: password });
   };
 
   const leaveBtnLogin = () => {
@@ -37,6 +36,11 @@ export const login = ({ navigation }) => {
       toValue: 1,
       useNativeDriver: false,
     }).start();
+  };
+
+  const requestLogin = async () => {
+    const response = await LoginService({ ci: ci, password: password });
+    console.log("Respuesta de la solicitud : ", response);
   };
 
   const styleBtn = {
@@ -78,14 +82,14 @@ export const login = ({ navigation }) => {
         <View style={styles.inputContainer}>
           <View>
             <Caption style={{ marginHorizontal: 50 }}>
-              Nombre de usuario
+              Carnet de identidad
             </Caption>
             <TextInput
-              placeholder="Usuario"
+              placeholder="C.I."
               style={styles.textInput}
               placeholderTextColor="rgba(0, 0, 0, 0.4)"
-              onChangeText={(userName) => setUserName(userName)}
-              value={userName}
+              onChangeText={(ci) => setCi(ci)}
+              value={ci}
             />
           </View>
 
@@ -120,7 +124,7 @@ export const login = ({ navigation }) => {
           <Divider style={{ margin: 10 }} />
         </View>
 
-        <Animated.View style={styleBtn}>
+        {/* <Animated.View style={styleBtn}>
           <TouchableWithoutFeedback
             onPressIn={() => pressBtnLogin()}
             onPressOut={() => leaveBtnLogin()}
@@ -133,7 +137,11 @@ export const login = ({ navigation }) => {
               <Text style={styles.textButton}>Ingresar</Text>
             </LinearGradient>
           </TouchableWithoutFeedback>
-        </Animated.View>
+        </Animated.View> */}
+
+        <Button style={styles.button} onPress={requestLogin} mode="text">
+          Este es mi boton
+        </Button>
 
         <View style={{ justifyContent: "center", alignItems: "center" }}>
           <TouchableWithoutFeedback onPress={() => goToForgotPassword()}>
